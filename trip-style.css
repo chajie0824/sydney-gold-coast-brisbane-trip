@@ -1,0 +1,80 @@
+:root {
+  --paper: #f7f2e5; --paper-raised: #fffaf0; --ink: #18313a; --ink-soft: #53666b;
+  --muted: #7d8a8d; --line: #dcd5c5; --line-soft: #ebe5d8; --navy: #0e3448;
+  --coral: #e85f3b; --teal: #2f8178; --teal-soft: #e2efeb; --good: #34734a;
+  --good-soft: #e2efe5; --warn: #a85b20; --warn-soft: #f6e8d7;
+  --shadow: 0 1px 2px rgba(24,49,58,.05), 0 12px 30px -18px rgba(14,52,72,.28);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper:#172126; --paper-raised:#202d32; --ink:#f1eadb; --ink-soft:#bdc7c7; --muted:#8f9c9e; --line:#39494d; --line-soft:#2d3b40; --navy:#79b9ca; --coral:#ff8d6e; --teal:#75c1b7; --teal-soft:#213b38; --good:#83c794; --good-soft:#21382a; --warn:#e5a36b; --warn-soft:#402d1d; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:"IBM Plex Sans","PingFang SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased; }
+a { color:var(--teal); }
+h1,h2,h3 { margin:0; font-family:"Fraunces",Georgia,serif; text-wrap:balance; }
+.wrap { max-width:900px; margin:0 auto; padding:28px 22px 80px; }
+.sitenav { position:sticky; top:10px; z-index:20; display:flex; gap:6px; max-width:420px; margin:0 0 32px; padding:9px; border:1px solid var(--line); border-radius:18px; background:color-mix(in srgb,var(--paper-raised) 92%,transparent); box-shadow:var(--shadow); backdrop-filter:blur(12px); }
+.sitenav a { flex:1; padding:8px 13px; border-radius:999px; color:var(--ink-soft); font-size:.88rem; font-weight:600; text-align:center; text-decoration:none; white-space:nowrap; }
+.sitenav a:hover { background:var(--line-soft); }
+.sitenav a.current { color:var(--paper-raised); background:var(--navy); }
+.masthead { position:relative; overflow:hidden; margin-bottom:38px; padding:38px; border-radius:24px; color:#f7f2e5; background:linear-gradient(145deg,#0b2e40 0%,#12475b 68%,#236c70 100%); box-shadow:var(--shadow); }
+.masthead::after { content:""; position:absolute; right:-110px; bottom:-125px; width:330px; height:230px; border:2px solid rgba(247,242,229,.2); border-radius:50%; transform:rotate(-12deg); box-shadow:0 0 0 24px rgba(247,242,229,.035),0 0 0 50px rgba(247,242,229,.025); }
+.eyebrow { margin:0 0 10px; color:#ff8869; font-family:"IBM Plex Mono",monospace; font-size:.78rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+.masthead h1 { position:relative; z-index:1; font-size:clamp(2rem,6vw,3.4rem); line-height:1.06; }
+.lede { position:relative; z-index:1; max-width:62ch; margin:15px 0 22px; color:rgba(247,242,229,.78); }
+.trip-stats { position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:8px; }
+.stat-chip { display:flex; flex-direction:column; gap:1px; padding:8px 12px; border:1px solid rgba(247,242,229,.18); border-radius:10px; background:rgba(255,255,255,.05); }
+.stat-chip .k { color:rgba(247,242,229,.56); font-size:.7rem; letter-spacing:.05em; }
+.stat-chip .v { color:#fffaf0; font-family:"IBM Plex Mono",monospace; font-size:.9rem; font-weight:600; }
+section { margin-bottom:44px; }
+.section-head { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+.section-head h2 { font-size:1.35rem; }
+.hint { color:var(--muted); font-size:.84rem; text-align:right; }
+.cost-callout,.final-banner,.risk-card { padding:18px 20px; border:1px solid var(--line); border-radius:14px; background:var(--paper-raised); box-shadow:var(--shadow); }
+.cost-callout { display:flex; align-items:center; justify-content:space-between; gap:18px; border-left:5px solid var(--coral); }
+.cost-callout strong { display:block; font-size:1.08rem; }
+.cost-callout p { margin:3px 0 0; color:var(--ink-soft); font-size:.91rem; }
+.pill-link { flex:0 0 auto; padding:8px 13px; border-radius:999px; color:#fffaf0; background:var(--coral); font-size:.84rem; font-weight:700; text-decoration:none; }
+.timeline { position:relative; padding-left:44px; }
+.timeline::before { content:""; position:absolute; left:14px; top:20px; bottom:20px; width:1px; background:var(--line); }
+.day { position:relative; margin-bottom:22px; padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--paper-raised); box-shadow:var(--shadow); }
+.day::before { content:attr(data-day); position:absolute; left:-44px; top:22px; display:grid; width:30px; height:30px; place-items:center; border:2px solid var(--paper); border-radius:50%; color:#fffaf0; background:var(--teal); font-family:"IBM Plex Mono",monospace; font-size:.72rem; font-weight:700; }
+.day-head { display:flex; align-items:flex-start; justify-content:space-between; gap:15px; }
+.day-date { display:block; margin-bottom:3px; color:var(--coral); font-family:"IBM Plex Mono",monospace; font-size:.75rem; font-weight:600; }
+.day-title { font-family:"Fraunces",Georgia,serif; font-size:1.2rem; font-weight:600; line-height:1.35; }
+.day-meta { flex:0 0 auto; color:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:.72rem; text-align:right; }
+.day-intro { margin:12px 0 15px; color:var(--ink-soft); font-size:.92rem; }
+.schedule { display:grid; border-top:1px solid var(--line-soft); }
+.slot { display:grid; grid-template-columns:80px 1fr; gap:14px; padding:10px 0; border-bottom:1px solid var(--line-soft); }
+.when { color:var(--teal); font-family:"IBM Plex Mono",monospace; font-size:.76rem; font-weight:600; }
+.what { color:var(--ink-soft); font-size:.9rem; }
+.what b { color:var(--ink); }
+.day-foot { display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:14px; }
+.tag { padding:4px 9px; border-radius:999px; color:var(--teal); background:var(--teal-soft); font-size:.75rem; font-weight:600; }
+.tag.booked { color:var(--good); background:var(--good-soft); }
+.map-link { margin-left:auto; font-size:.78rem; font-weight:700; text-decoration:none; }
+.table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:var(--paper-raised); box-shadow:var(--shadow); }
+.stat-table { width:100%; min-width:680px; border-collapse:collapse; }
+.stat-table th,.stat-table td { padding:12px 14px; border-bottom:1px solid var(--line-soft); text-align:left; vertical-align:top; }
+.stat-table th { color:var(--muted); background:var(--line-soft); font-size:.76rem; letter-spacing:.04em; }
+.stat-table td { color:var(--ink-soft); font-size:.9rem; }
+.stat-table tr:last-child td { border-bottom:none; }
+.stat-table .num { color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:600; white-space:nowrap; }
+.status { color:var(--good); font-weight:700; white-space:nowrap; }
+.final-banner { margin-top:14px; border-left:5px solid var(--teal); }
+.final-banner p { margin:0; color:var(--ink-soft); }
+.final-banner .big { color:var(--ink); font-family:"IBM Plex Mono",monospace; font-size:1.05rem; font-weight:700; }
+.hotel-list,.panel-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.hotel-card,.panel { padding:17px; border:1px solid var(--line); border-radius:14px; background:var(--paper-raised); box-shadow:var(--shadow); }
+.hotel-card .night { color:var(--coral); font-family:"IBM Plex Mono",monospace; font-size:.74rem; font-weight:600; }
+.hotel-card h3,.panel h3 { margin:6px 0; font-size:1rem; }
+.hotel-card p,.panel p,.panel li { margin:0; color:var(--ink-soft); font-size:.86rem; }
+.hotel-card .price { display:block; margin-top:12px; color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:700; }
+.panel-grid { grid-template-columns:repeat(2,1fr); }
+.panel ul { margin:8px 0 0; padding-left:19px; }
+.risk-card { margin-top:14px; color:var(--ink-soft); border-left:5px solid var(--warn); background:var(--warn-soft); }
+footer { padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:.75rem; text-align:center; }
+@media (max-width:700px) {
+  .wrap{padding:18px 14px 58px}.sitenav{top:6px;margin-bottom:20px}.masthead{padding:26px 21px;border-radius:18px}.cost-callout{align-items:flex-start;flex-direction:column}.timeline{padding-left:36px}.timeline::before{left:11px}.day{padding:17px}.day::before{left:-37px;top:18px;width:26px;height:26px}.day-head{flex-direction:column}.day-meta{text-align:left}.slot{grid-template-columns:64px 1fr;gap:10px}.map-link{width:100%;margin-left:0}.hotel-list,.panel-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.hint{text-align:left}
+}
