@@ -3,10 +3,11 @@
   --muted: #7d8a8d; --line: #dcd5c5; --line-soft: #ebe5d8; --navy: #0e3448;
   --coral: #e85f3b; --teal: #2f8178; --teal-soft: #e2efeb; --good: #34734a;
   --good-soft: #e2efe5; --warn: #a85b20; --warn-soft: #f6e8d7;
+  --chart-food:#e85f3b; --chart-stay:#2f8178; --chart-transit:#0e3448; --chart-activity:#d29a3a; --chart-shop:#8a6aaa;
   --shadow: 0 1px 2px rgba(24,49,58,.05), 0 12px 30px -18px rgba(14,52,72,.28);
 }
 @media (prefers-color-scheme: dark) {
-  :root { --paper:#172126; --paper-raised:#202d32; --ink:#f1eadb; --ink-soft:#bdc7c7; --muted:#8f9c9e; --line:#39494d; --line-soft:#2d3b40; --navy:#79b9ca; --coral:#ff8d6e; --teal:#75c1b7; --teal-soft:#213b38; --good:#83c794; --good-soft:#21382a; --warn:#e5a36b; --warn-soft:#402d1d; }
+  :root { --paper:#172126; --paper-raised:#202d32; --ink:#f1eadb; --ink-soft:#bdc7c7; --muted:#8f9c9e; --line:#39494d; --line-soft:#2d3b40; --navy:#79b9ca; --coral:#ff8d6e; --teal:#75c1b7; --teal-soft:#213b38; --good:#83c794; --good-soft:#21382a; --warn:#e5a36b; --warn-soft:#402d1d; --chart-food:#ff8d6e; --chart-stay:#75c1b7; --chart-transit:#79b9ca; --chart-activity:#e8b85d; --chart-shop:#b99bd4; }
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -65,6 +66,16 @@ section { margin-bottom:44px; }
 .final-banner { margin-top:14px; border-left:5px solid var(--teal); }
 .final-banner p { margin:0; color:var(--ink-soft); }
 .final-banner .big { color:var(--ink); font-family:"IBM Plex Mono",monospace; font-size:1.05rem; font-weight:700; }
+.expense-chart { display:grid; grid-template-columns:minmax(220px,300px) 1fr; align-items:center; gap:34px; padding:24px; border:1px solid var(--line); border-radius:14px; background:var(--paper-raised); box-shadow:var(--shadow); }
+.pie-chart { width:min(100%,280px); aspect-ratio:1; margin:auto; border-radius:50%; background:conic-gradient(var(--chart-food) 0 39.35%,var(--chart-stay) 39.35% 68.29%,var(--chart-transit) 68.29% 90.51%,var(--chart-activity) 90.51% 97.06%,var(--chart-shop) 97.06% 100%); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 12%,transparent); }
+.chart-legend { display:grid; gap:10px; margin:0; }
+.chart-legend div { display:grid; grid-template-columns:12px minmax(110px,1fr) auto; align-items:center; gap:10px; padding-bottom:8px; border-bottom:1px solid var(--line-soft); }
+.chart-legend div:last-child { padding-bottom:0; border-bottom:0; }
+.chart-legend dt,.chart-legend dd { margin:0; }
+.chart-legend dt { color:var(--ink-soft); font-size:.9rem; }
+.chart-legend dd { color:var(--ink); font-family:"IBM Plex Mono",monospace; font-size:.82rem; font-weight:600; text-align:right; }
+.chart-swatch { width:12px; height:12px; border-radius:3px; }
+.chart-note { margin:12px 0 0; color:var(--muted); font-size:.8rem; }
 .hotel-list,.panel-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
 .hotel-card,.panel { padding:17px; border:1px solid var(--line); border-radius:14px; background:var(--paper-raised); box-shadow:var(--shadow); }
 .hotel-card .night { color:var(--coral); font-family:"IBM Plex Mono",monospace; font-size:.74rem; font-weight:600; }
@@ -76,5 +87,5 @@ section { margin-bottom:44px; }
 .risk-card { margin-top:14px; color:var(--ink-soft); border-left:5px solid var(--warn); background:var(--warn-soft); }
 footer { padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:.75rem; text-align:center; }
 @media (max-width:700px) {
-  .wrap{padding:18px 14px 58px}.sitenav{top:6px;margin-bottom:20px}.masthead{padding:26px 21px;border-radius:18px}.cost-callout{align-items:flex-start;flex-direction:column}.timeline{padding-left:36px}.timeline::before{left:11px}.day{padding:17px}.day::before{left:-37px;top:18px;width:26px;height:26px}.day-head{flex-direction:column}.day-meta{text-align:left}.slot{grid-template-columns:64px 1fr;gap:10px}.map-link{width:100%;margin-left:0}.hotel-list,.panel-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.hint{text-align:left}
+  .wrap{padding:18px 14px 58px}.sitenav{top:6px;margin-bottom:20px}.masthead{padding:26px 21px;border-radius:18px}.cost-callout{align-items:flex-start;flex-direction:column}.timeline{padding-left:36px}.timeline::before{left:11px}.day{padding:17px}.day::before{left:-37px;top:18px;width:26px;height:26px}.day-head{flex-direction:column}.day-meta{text-align:left}.slot{grid-template-columns:64px 1fr;gap:10px}.map-link{width:100%;margin-left:0}.hotel-list,.panel-grid{grid-template-columns:1fr}.expense-chart{grid-template-columns:1fr;gap:24px;padding:20px}.section-head{align-items:flex-start;flex-direction:column}.hint{text-align:left}
 }
